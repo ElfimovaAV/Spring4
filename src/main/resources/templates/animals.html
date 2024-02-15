@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Red list</title>
+</head>
+<body>
+    <h1>Rare animals of Russia</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Population</th>
+        </tr>
+        <tr th:each="animal : ${animals}">
+            <td th:text="${animal.id}"></td>
+            <td th:text="${animal.name}"></td>
+            <td th:text="${animal.population}"></td>
+        </tr>
+    </table>
+    <h2>Add an animal in Red list</h2>
+    <form action="/animals" method="post">
+        Name: <input type="text" name="name"><br />
+        Population: <input type="number" step="any" name="population"><br />
+        <button type="submit">Add an animal</button>
+    </form>
+</body>
+</html>
